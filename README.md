@@ -1,4 +1,4 @@
-## Today I Learned
+## Study
 
 코드스테이츠 수료 이후
 

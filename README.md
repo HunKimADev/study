@@ -1,5 +1,3 @@
-# TIL
-
 ### Today I Learned
 
 코드스테이츠 수료 이후

@@ -5,26 +5,24 @@
 ```js
 function solution(table, languages, preference) {
   var answer = "";
+
+  //동률일 경우를 위한 정렬
   table.sort();
+
   const scoreTable = [5, 4, 3, 2, 1];
   const jobs = table.map((jobInfo) => jobInfo.split(" ")[0]);
   const languageTable = table.map((jobInfo) => jobInfo.split(" ").slice(1));
-
   const totalScores = [];
+
   for (let lanOfJob of languageTable) {
-    //5
     let totalScore = 0;
     for (let indexOfLan = 0; indexOfLan < languages.length; indexOfLan++) {
-      // 5
-      console.log("lan: ", languages[indexOfLan]);
       let targetIndex = lanOfJob.indexOf(languages[indexOfLan]);
       totalScore +=
         targetIndex < 0 ? 0 : scoreTable[targetIndex] * preference[indexOfLan];
-      console.log("totalScore: ", totalScore);
     }
     totalScores.push(totalScore);
   }
-  console.log("totalScores: ", totalScores);
 
   const indexOfHighestScore = totalScores.indexOf(Math.max(...totalScores));
 

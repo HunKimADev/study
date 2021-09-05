@@ -38,14 +38,14 @@ let과 const의 차이는 let은 변수이고, const는 상수라는 점이다.
 재할당을 하려고 할 시에는 `TypeError: Assignment to constant variable.` 이러한 TypeError를 마주치게 된다.
 이렇게 개편된 키워드인 let과 const를 사용해서 위의 var의 문제점에서 들어본 예시를 다시 구현해 본다면 이러한 에러들을 마주치게 된다.
 
-1. `SyntaxError: Identifier 'name' has already been declared`
+1. `SyntaxError: Identifier 'name' has already been declared` : 이미 선언된 변수명
 
 ```js
 let name = "상훈";
 let name = "율리";
 ```
 
-2. `ReferenceError: Cannot access 'name' before initialization`
+2. `ReferenceError: Cannot access 'name' before initialization` : 선언되기 이전에 호출됨
 
 ```js
 console.log(name);
@@ -53,11 +53,15 @@ console.log(name);
 const name = "상훈";
 ```
 
-3. `ReferenceError: name is not defined`
+3. `ReferenceError: name is not defined` : let, const는 'Block Scope'이기 때문에 block 바깥에서는 접근할 수 없다.
 
 ```js
-if (isVar) {
+if (true) {
   const name = "상훈";
 }
 console.log(name);
 ```
+
+이런식으로 let과 const는 기존의 모호했던 javascript의 var를 이용한 변수 선언방식을 안정적이고 확실하게 바꿔주었다.
+var로 작성된 기존의 서비스들 때문에 ES6에서도 var키워드를 지원하고있지만,
+현재로써는 var키워드의 사용을 지양하고 let과 const 키워드의 사용을 권장하고 있다.
